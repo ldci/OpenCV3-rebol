@@ -9,11 +9,6 @@ REBOL [
 
 ;****************** we need some specific tools for talking to OpenCV  **************
 
-; if we need structures inside routines
-cvSFunc: func [specs lib id] [make routine! compose/deep/only specs lib id] 
-
-
-
 byte-ptr!: make struct! [value [char!]] none
 int-ptr!: make struct! [value [integer!]] none
 float-ptr!: make struct! [value [decimal!]] none
@@ -274,6 +269,12 @@ tocvFloatRGB: func [color [tuple!] /local divider] [
 
 
 
+cvSavetoRebol: func [src dest] [
+ cvSaveImage to-string to-local-file join appDir "images/tmp.jpg" src
+ dest/image: load to-file join appDir "images/tmp.jpg"
+ show dest
+]
+
 
 
 
@@ -335,3 +336,6 @@ atan2: func [x y][
 	x: either x > 0 [arctangent y / x][180 + arctangent y / x]
 	360 + x // 360
 ]
+
+
+

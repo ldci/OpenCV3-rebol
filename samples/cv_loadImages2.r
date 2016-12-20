@@ -1,4 +1,4 @@
-#! /usr/bin/rebol
+#! /usr/local/bin/rebol
 REBOL [
 	Title:		"OpenCV Tests: Simple Load Image "
 	Author:		"François Jouen"

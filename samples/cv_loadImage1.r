@@ -1,8 +1,8 @@
-#! /usr/bin/rebol
+#! /usr/local/bin/rebol
 REBOL [
 	Title:		"OpenCV Tests: Simple Load Image "
 	Author:		"François Jouen"
-	Rights:		"Copyright (c) 2014 François Jouen. All rights reserved."
+	Rights:		"Copyright (c) 2012-2016 François Jouen. All rights reserved."
 	License:    "BSD-3 - https://github.com/dockimbel/Red/blob/master/BSD-3-License.txt"
 ]
 
@@ -43,5 +43,3 @@ cvDestroyAllWindows
 free-mem img
 ;free  library
 freeDylib
-
-;CV_WND_PROP_AUTOSIZE

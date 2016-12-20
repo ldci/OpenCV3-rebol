@@ -323,7 +323,7 @@ getIPLImage: func [src [integer!]] [
 ]
 
 
-CV_IS_IMAGE_HDR: func [src /local val img] [
+CV_IS_IMAGE_HDR: func [src [integer!] /local val img] [
 	img: getIPLImage src
     val: 0
     size: (length? third img) + 24
@@ -332,11 +332,11 @@ CV_IS_IMAGE_HDR: func [src /local val img] [
     either val >= 1 [true] [false]  
 ]
 
-CV_IS_IMAGE: func [src /local hdr data img] [
+CV_IS_IMAGE: func [src [integer!] /local hdr data img] [
 	img: getIPLImage src
 	data: hdr: false
 	if not none? img/imageData [data: true]
-	hdr: CV_IS_IMAGE_HDR img 
+	hdr: CV_IS_IMAGE_HDR src 
    	either (hdr AND data) [true] [false]
 ]
 

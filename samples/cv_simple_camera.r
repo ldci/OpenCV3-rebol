@@ -1,16 +1,13 @@
-#! /usr/bin/rebol
+#! /usr/local/bin/rebol
 REBOL [
 	Title:		"OpenCV Tests: Simple camera Image "
 	Author:		"François Jouen"
-	Rights:		"Copyright (c) 2014 François Jouen. All rights reserved."
+	Rights:		"Copyright (c) 2012-2014 François Jouen. All rights reserved."
 	License:    "BSD-3 - https://github.com/dockimbel/Red/blob/master/BSD-3-License.txt"
 ]
 
 
 do %../opencv.r   				; for loading the libs
-set 'appDir what-dir 
-film: to-string join appDir "_images/test.mov"
-probe film
 trackOn: true
 mouseOn: true
 
@@ -48,3 +45,4 @@ if cam/isOpened [
 
 win/destroyWindow
 cam/release
+freeDylib

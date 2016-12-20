@@ -709,7 +709,8 @@ CvSparseMat;
 
 typedef struct CvSparseNode
 {
-    unsigned hashval;
+    unsigned 
+    ;
     struct CvSparseNode* next;
 }
 CvSparseNode;

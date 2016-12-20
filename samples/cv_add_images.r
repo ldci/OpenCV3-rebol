@@ -1,16 +1,16 @@
-#! /usr/bin/rebol
+#! /usr/local/bin/rebol
 REBOL [
 	Title:		"OpenCV Tests: Arithmetic, logic and comparison operations "
 	Author:		"François Jouen"
-	Rights:		"Copyright (c) 2012-2014 François Jouen. All rights reserved."
+	Rights:		"Copyright (c) 2012-2016 François Jouen. All rights reserved."
 	License:    "BSD-3 - https://github.com/dockimbel/Red/blob/master/BSD-3-License.txt"
 ]
 do %../opencv.r
 set 'appDir what-dir 
-;picture:  to-string to-local-file join appDir "images/lena.jpg"
+picture:  to-string to-local-file join appDir "_images/lena.jpg"
 
-temp: request-file 
-picture: to-string to-local-file to-string temp
+;temp: request-file 
+;picture: to-string to-local-file to-string temp
 
 wName1: "Image 1 [space to continue]"
 wName2: "Image 2 "

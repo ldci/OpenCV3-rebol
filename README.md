@@ -8,6 +8,10 @@ This binding allows access OpenCV functions (http://en.wikipedia.org/wiki/OpenCV
 This binding can be used with OpenCV3.0.0
 
 560 basic C Functions can be used with REBOL R2.
+### NEW DECEMBER 2016
+An improved version for Rebol R2
+
+
 
 ## Warning
 You must use 32-bit version of dynamically linked libraries. 

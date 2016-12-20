@@ -1,4 +1,4 @@
-#! /usr/bin/rebol
+#! /usr/local/bin/rebol
 REBOL [
 	Title:		"OpenCV Tests: Flip functions "
 	Author:		"François Jouen"
@@ -11,12 +11,11 @@ set 'appDir what-dir
 wName: "Image 1 [space to continue]"
 wName2: "Copy"
 
-;picture:  to-string to-local-file join appDir "images/lena.tiff"
+picture:  to-string to-local-file join appDir "_images/lena.jpg"
 
-print "Select a picture"
-
-temp: request-file 
-picture: to-string to-local-file to-string temp
+;print "Select a picture"
+;temp: request-file 
+;picture: to-string to-local-file to-string temp
 
 img: cvLoadImage picture CV_LOAD_IMAGE_COLOR
 

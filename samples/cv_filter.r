@@ -1,4 +1,4 @@
-#! /usr/bin/rebol
+#! /usr/local/bin/rebol
 REBOL [
 	Title:		"OpenCV Tests"
 	Author:		"François Jouen"
@@ -9,12 +9,11 @@ REBOL [
 do %../opencv.r
 set 'appDir what-dir 
 
-;picture: to-string to-local-file join appDir "images/lena.jpg"
+picture: to-string to-local-file join appDir "_images/lena.jpg"
 
-print "Select a picture"
-
-temp: request-file 
-picture: to-string to-local-file to-string temp
+;print "Select a picture"
+;temp: request-file 
+;picture: to-string to-local-file to-string temp
 
 
 srcWnd: "Using cvTrackbar: ESC to close"

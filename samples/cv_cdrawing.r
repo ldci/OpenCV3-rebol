@@ -1,4 +1,4 @@
-#! /usr/bin/rebol
+#! /usr/local/bin/rebol
 REBOL [
 	Title:		"OpenCV Tests: Drawing"
 	Author:		"François Jouen"
@@ -9,7 +9,7 @@ REBOL [
 
 do %../opencv.r
 	
-wndname: "OpenCV drawing and text output functions"
+wndname: "OpenCV drawing output functions"
 number: 100
 delay: 5
 lineType: CV_AA; // change it to 8 to see non-antialiased graphics
@@ -24,9 +24,7 @@ x2: (width * 3) / 2
 y1: negate height / 2 
 y2: (height * 3) / 2
 
-cvRNG #FFFFFFFF ; random generator 
-CV_RGB 255 255 0
-
+;
 ; ipl_depth * nchannels : donne le nbre de bits de l'image : ex 8X3 : 24 bits color
 ; IPL_DEPTH_8U, IPL_DEPTH_8S, IPL_DEPTH_16U, IPL_DEPTH_16S, IPL_DEPTH_32F, IPL_DEPTH_64F
 ; use tocvByteRGB, tocvIntRGB or tocvFloatRGB according to depth &image to get nice colors! 
@@ -187,43 +185,14 @@ for i 1 number 1  [
 	wait 0
 ]
 
-print ["Testing Fonts"]
 cvZero image
 
-for i 1 number 1  [
-    pt1/x: random width3 - width
-    pt1/y: random height3 - height
-	color: tocvByteRGB/signed random 255.255.255 
-	thickness: random 3 
-	_font: random 8 if _font = 8 [_font: 0]
-	vs: random 5.0
-	hs: random 3.0
-	cvInitFont &font _font hs vs 0 thickness CV_AA
-	cvPutText image "Testing text rendering" pt1/x pt1/y &font color/1 color/2 color/3 0
-	cvShowImage wndname image
-	wait 0
-]
-
-cvInitFont &font CV_FONT_HERSHEY_SIMPLEX 3.0 3.0 0 5 lineType
-cvGetTextSize "OpenCV forever!" &font &text_size &ymin
-
+cvInitFont &font CV_FONT_HERSHEY_SIMPLEX 1.0 1.0 0 1 lineType
+cvGetTextSize "Any key to close" &font &text_size &ymin
 pt1/x: (width - text_size/width) / 2
 pt1/y: (height + text_size/height) / 2
 
-image2: cvCloneImage image
-
-print ["Testing Images substraction "]
-for i 1 255 1 [
-    v: cvScalarAll i
-    cvAddS image2 v/v0 v/v1 v/v2 v/v3 image none
-    color: tocvFloatRGB to-tuple reduce [i  i  255]
-    cvPutText image "OpenCV forever!" pt1/x pt1/y &font color/1 color/2 color/3  0
-    cvShowImage wndname image
-    cvWaitKey delay
-]
-
-cvZero image
-cvPutText image "Any key to close" pt1/x pt1/y &font 255 0 0 0
+cvPutText image "Any key to close" pt1/x pt1/y &font 0 255 0 0
 cvShowImage wndname image
 
 cvwaitKey 0

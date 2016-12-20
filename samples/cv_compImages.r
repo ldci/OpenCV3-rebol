@@ -1,16 +1,16 @@
-#! /usr/bin/rebol
+#! /usr/local/bin/rebol
 REBOL [
 	Title:		"OpenCV Tests: Image Comparison"
 	Author:		"François Jouen"
-	Rights:		"Copyright (c) 2015 François Jouen. All rights reserved."
+	Rights:		"Copyright (c) 2012-2016 François Jouen. All rights reserved."
 	License:    "BSD-3 - https://github.com/dockimbel/Red/blob/master/BSD-3-License.txt"
 ]
 do %../opencv.r
 set 'appDir what-dir 
-;picture:  to-string to-local-file join appDir "images/lena.tiff"
+picture:  to-string to-local-file join appDir "_images/lena.jpg"
 
-temp: request-file 
-picture: to-string to-local-file to-string temp
+;temp: request-file 
+;picture: to-string to-local-file to-string temp
 
 windowsName: "Original Image [ESC to Continue]"
 print ["Loading an image"]
@@ -47,12 +47,12 @@ cvShowImage "Destination" dst
 print "cvCmpS Hit key" 
 cvWaitKey 0
 
-cvMin s0 s1 dst CV_CMP_EQ
+cvMin s0 s1 dst 
 cvShowImage "Destination" dst
 print "cvMin Hit key" 
 cvWaitKey 0
 
-cvMax s0 s1 dst CV_CMP_EQ
+cvMax s0 s1 dst 
 cvShowImage "Destination" dst
 print "cvMax Hit key" 
 cvWaitKey 0
