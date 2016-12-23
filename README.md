@@ -11,7 +11,7 @@ This binding can be used with OpenCV3.0.0
 ### NEW DECEMBER 2016
 An improved version for Rebol R2
 
-
+Compiled OpenCV DLLs are in /Dlls directory.
 
 ## Warning
 You must use 32-bit version of dynamically linked libraries. 
